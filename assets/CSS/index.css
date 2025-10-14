@@ -1,0 +1,324 @@
+@import url("./global.css");
+
+/*Header*/
+.header {
+  position: relative;
+  margin-top: 3.125rem;
+  padding: 6.25rem 0 18.75rem;
+  background: linear-gradient(-45deg, #56125b, #0f0f10, #271e6e);
+  background-size: 400% 400%;
+  animation: gradient 10s ease infinite alternate;
+}
+
+.header::after {
+  content: "";
+  width: 100%;
+  height: 15.625rem;
+  position: absolute;
+  bottom: 0;
+  background: linear-gradient(0deg, var(--primary-color), transparent);
+}
+
+.header__content {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.5rem;
+  padding: 0 2.5rem;
+}
+
+.header__channels {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.header__channel {
+  object-fit: contain;
+}
+
+.header__title {
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 3rem;
+}
+
+.header__title--light {
+  display: block;
+  font-weight: lighter;
+  font-size: 2rem;
+}
+
+.header .text--small {
+  max-width: 18.75rem;
+  text-align: center;
+}
+
+.header__button {
+  animation: wiggle 2.2s linear infinite;
+}
+
+/*Dividers*/
+
+.divider {
+  width: 70%;
+  max-width: 43.75rem;
+  height: 0.313rem;
+  background: var(--divider-bg-color);
+}
+
+.offer {
+    text-align: center;
+    font-size: 1.25rem;
+}
+
+.offer__price {
+    font-family: "Raleway", sans-serif;
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+.offer__price--small {
+    font-size: 1rem;
+    font-weight: 300;
+}
+
+.title {
+    font-size: 2rem;
+    font-weight: 500;
+}
+
+/* Subscription Plans */
+
+.subscription {
+  background: url("../images/background-movies-series.png") no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.subscription__plans {
+  display: flex;
+  justify-content: space-around;
+  gap: 5rem;
+  margin: 2.5rem 0;
+  perspective: 125rem;
+  perspective-origin: top;
+}
+
+.subscription__card {
+  background: var(--card-bg-color);
+  padding: 2.5rem 3.75rem;
+  border-radius: 0.5rem;
+  display: flex;
+  min-height: 37.5rem;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 1s ease-in-out;
+}
+
+.subscription__plans:has(.subscription__card:nth-child(1):hover)
+  .subscription__card:nth-child(2) {
+  transform: rotateY(-45deg);
+}
+
+.subscription__plans:has(.subscription__card:nth-child(2):hover)
+  .subscription__card:nth-child(1) {
+  transform: rotateY(45deg);
+}
+
+.subscription__description {
+  text-align: left;
+  list-style: none;
+  font-size: 1.25rem;
+  margin-bottom: 0.875rem;
+  padding-left: 0.875rem;
+}
+
+.subscription__price {
+  font-size: 2rem;
+  font-family: "Raleway", sans-serif;
+  color: var(--secondary-color);
+  font-weight: 700;
+}
+
+.subscription__price .text--small {
+  color: var(--text-color);
+}
+
+.subscription__description::marker {
+  content: "+";
+  font-size: 2rem;
+  margin: 0 0.5rem 0 0;
+}
+
+.subscription__plan {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+/*Contents*/
+
+.contents {
+  margin: 6.25rem auto;
+}
+
+.contents__container {
+  margin-top: 2.5rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+}
+
+.contents__card {
+  border-radius: 1rem;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  border: 0.125rem solid transparent;
+  transition: transform 0.8s, background 0.8s, border 1s;
+}
+
+.contents__card:hover {
+  transform: scale(1.05);
+  border: 0.125rem solid var(--tertiary-color);
+}
+
+.contents__card:hover .contents__image {
+  opacity: 0;
+}
+
+.contents__image {
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: opacity 2s;
+}
+
+.contents__card:nth-child(1):hover {
+  background-image: url("../images/hbo-hover_0.webp");
+}
+
+.contents__card:nth-child(2):hover {
+  background-image: url("../images/MAX-Hover.webp");
+}
+
+.contents__card:nth-child(3):hover {
+  background-image: url("../images/DC-Hover.webp");
+}
+
+.contents__card:nth-child(4):hover {
+  background-image: url("../images/WB-Hover.webp");
+}
+
+.contents__card:nth-child(5):hover {
+  background-image: url("../images/CN-Hover.png");
+}
+
+.contents__card:nth-child(6):hover {
+  background-image: url("../images/UCL-Hover.webp");
+}
+
+/*Media Queries*/
+
+@media screen and (max-width: 75rem) {
+  .subscription__plans {
+    gap: 2.5rem;
+  }
+}
+
+@media screen and (max-width: 71.25rem) {
+  .subscription__plans {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .subscription__card {
+    max-width: 37.5rem;
+  }
+}
+
+@media screen and (max-width: 48rem) {
+  .contents__container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 30rem) {
+  .subscription__price {
+    font-size: 1.5rem;
+  }
+
+  .subscription__description {
+    font-size: 1rem;
+  }
+
+  .subscription__plan {
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .subscription__card {
+    padding: 2.5rem;
+  }
+
+  .contents__container {
+    grid-template-columns: repeat(6, 100%);
+    grid-auto-flow: column;
+    overflow: auto hidden;
+  }
+}
+
+/*animations*/
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+
+@keyframes wiggle {
+  0% {
+    transform: rotate(0deg);
+  } 
+
+  15% {
+    transform: rotate(15deg);
+  } 
+
+  20% {
+    transform: rotate(-15deg);
+  } 
+
+  25% {
+    transform: rotate(15deg);
+  } 
+
+  30% {
+    transform: rotate(-15deg);
+  } 
+
+  35% {
+    transform: rotate(15deg);
+  } 
+
+  40% {
+    transform: rotate(-15deg);
+  } 
+
+  100% {
+    transform: rotate(0deg);
+  } 
+}
+
+
